@@ -12,7 +12,7 @@ Blog com Sistema de Login
 
 
 
-## ☕ Usando <nome_do_projeto>
+## ☕ Usando o blog
 
 Para usar blog, siga estas etapas:
 
