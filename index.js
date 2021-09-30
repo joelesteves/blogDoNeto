@@ -3,15 +3,25 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
 const connection = require("./database/database");
+const session = require("express-session");
 
+const UsersController = require("./users/UsersController")
 const ArticlesController = require("./aticles/ArticlesController");
 const CategoriesController = require("./categories/CategoriesController");
 
 const Article = require("./aticles/Article");
 const Category = require("./categories/Category");
+const User = require("./users/User");
+
 
 //view engine
 app.set('view engine','ejs');
+
+
+//session
+app.use(session({
+    secret: "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U", cookie: { maxAge: 300000000}
+}))
 
 //Static
 app.use(express.static('public'));
@@ -33,7 +43,7 @@ connection
 
 app.use("/", CategoriesController);
 app.use("/", ArticlesController);
-
+app.use("/", UsersController);
 
 
 //rotas
